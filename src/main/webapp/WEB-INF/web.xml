@@ -1,0 +1,40 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+ <web-app>
+   <!--配置Spring的编码过滤器-->
+   <filter>
+     <filter-name>CharsetEncodingFilter</filter-name>
+     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+     <init-param>
+       <param-name>encoding</param-name>
+       <param-value>utf-8</param-value>
+     </init-param>
+     <init-param>
+       <param-name>forceEncoding</param-name>
+       <param-value>true</param-value>
+     </init-param>
+   </filter>
+   <filter-mapping>
+     <filter-name>CharsetEncodingFilter</filter-name>
+     <url-pattern>/</url-pattern>
+   </filter-mapping>
+
+   <servlet>
+     <servlet-name>SpringMVC</servlet-name><!--配置servlet名字，可以随意取名-->
+     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+     <init-param>
+       <!--contextConfigLocation固定值，时DispatchServlet中自带属性，不能更改,赋值为Spring配置文件地址-->
+       <param-name>contextConfigLocation</param-name>
+       <!--web项目中配置文件地址前必须加classpath-->
+       <param-value>classpath:spring.xml</param-value>
+     </init-param>
+     <!--load-on-startup赋值1表示Tomcat启动该项目时就加在这个Servlet，如果配置多个按照赋值大小以此自动加载，如果不配置该属性，则表示这个servlet在首次被访问到时加载-->
+     <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>SpringMVC</servlet-name><!--必须和servlet标签内的servlet-name标签给值一致-->
+     <url-pattern>/</url-pattern><!--配置哪些请求会进入DispatchServlet，赋值斜线表示所有请求都进入SpringMVC-->
+   </servlet-mapping>
+ </web-app>

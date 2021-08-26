@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.LeavenoteMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Leavenote">
+    <id column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="scid" jdbcType="INTEGER" property="scid" />
+    <result column="lcratetime" jdbcType="TIMESTAMP" property="lcratetime" />
+    <result column="lstarttime" jdbcType="TIMESTAMP" property="lstarttime" />
+    <result column="lendtime" jdbcType="TIMESTAMP" property="lendtime" />
+    <result column="ltype" jdbcType="INTEGER" property="ltype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tardisyuan.dormmanagement.bean.Leavenote">
+    <result column="lnote" jdbcType="LONGVARCHAR" property="lnote" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lid, sid, scid, lcratetime, lstarttime, lendtime, ltype
+  </sql>
+  <sql id="Blob_Column_List">
+    lnote
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from leavenote
+    where lid = #{lid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from leavenote
+    where lid = #{lid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Leavenote">
+    insert into leavenote (lid, sid, scid, 
+      lcratetime, lstarttime, lendtime, 
+      ltype, lnote)
+    values (#{lid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{scid,jdbcType=INTEGER}, 
+      #{lcratetime,jdbcType=TIMESTAMP}, #{lstarttime,jdbcType=TIMESTAMP}, #{lendtime,jdbcType=TIMESTAMP}, 
+      #{ltype,jdbcType=INTEGER}, #{lnote,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Leavenote">
+    insert into leavenote
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="scid != null">
+        scid,
+      </if>
+      <if test="lcratetime != null">
+        lcratetime,
+      </if>
+      <if test="lstarttime != null">
+        lstarttime,
+      </if>
+      <if test="lendtime != null">
+        lendtime,
+      </if>
+      <if test="ltype != null">
+        ltype,
+      </if>
+      <if test="lnote != null">
+        lnote,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="scid != null">
+        #{scid,jdbcType=INTEGER},
+      </if>
+      <if test="lcratetime != null">
+        #{lcratetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstarttime != null">
+        #{lstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ltype != null">
+        #{ltype,jdbcType=INTEGER},
+      </if>
+      <if test="lnote != null">
+        #{lnote,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Leavenote">
+    update leavenote
+    <set>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="scid != null">
+        scid = #{scid,jdbcType=INTEGER},
+      </if>
+      <if test="lcratetime != null">
+        lcratetime = #{lcratetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstarttime != null">
+        lstarttime = #{lstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        lendtime = #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ltype != null">
+        ltype = #{ltype,jdbcType=INTEGER},
+      </if>
+      <if test="lnote != null">
+        lnote = #{lnote,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where lid = #{lid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tardisyuan.dormmanagement.bean.Leavenote">
+    update leavenote
+    set sid = #{sid,jdbcType=INTEGER},
+      scid = #{scid,jdbcType=INTEGER},
+      lcratetime = #{lcratetime,jdbcType=TIMESTAMP},
+      lstarttime = #{lstarttime,jdbcType=TIMESTAMP},
+      lendtime = #{lendtime,jdbcType=TIMESTAMP},
+      ltype = #{ltype,jdbcType=INTEGER},
+      lnote = #{lnote,jdbcType=LONGVARCHAR}
+    where lid = #{lid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Leavenote">
+    update leavenote
+    set sid = #{sid,jdbcType=INTEGER},
+      scid = #{scid,jdbcType=INTEGER},
+      lcratetime = #{lcratetime,jdbcType=TIMESTAMP},
+      lstarttime = #{lstarttime,jdbcType=TIMESTAMP},
+      lendtime = #{lendtime,jdbcType=TIMESTAMP},
+      ltype = #{ltype,jdbcType=INTEGER}
+    where lid = #{lid,jdbcType=INTEGER}
+  </update>
+
+  <select id="getList" resultType="Leavenote" parameterType="Leavenote">
+    select l.*,s.sname,sc.scname from leavenote l,student s,sc sc where l.sid = s.sid and l.scid = sc.scid
+    <where>
+      <if test="sid != null">
+        and l.sid = #{sid}
+      </if>
+      <if test="scid != null">
+        and l.scid = #{scid}
+      </if>
+      <if test="lcratetime != null">
+        and l.lcratetime = #{collegename}
+      </if>
+      <if test="lstarttime != null ">
+        and l.lstarttime = #{lstarttime}
+      </if>
+      <if test="lendtime != null">
+        and l.lendtime = #{lendtime}
+      </if>
+      <if test="ltype != null">
+        and l.ltype = #{ltype}
+      </if>
+      <if test="lid != null">
+        and l.lid = #{lid}
+      </if>
+    </where>
+    order by l.lid desc
+  </select>
+</mapper>
