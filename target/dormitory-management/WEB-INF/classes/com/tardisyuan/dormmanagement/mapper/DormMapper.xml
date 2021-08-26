@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.DormMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Dorm">
+    <id column="did" jdbcType="BIGINT" property="did" />
+    <result column="dbno" jdbcType="VARCHAR" property="dbno" />
+    <result column="dfloor" jdbcType="INTEGER" property="dfloor" />
+    <result column="dno" jdbcType="INTEGER" property="dno" />
+    <result column="dhno" jdbcType="VARCHAR" property="dhno" />
+    <result column="dtype" jdbcType="INTEGER" property="dtype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    did, dbno, dfloor, dno, dhno, dtype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dorm
+    where did = #{did,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dorm
+    where did = #{did,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Dorm">
+    insert into dorm (did, dbno, dfloor, 
+      dno, dhno, dtype)
+    values (#{did,jdbcType=BIGINT}, #{dbno,jdbcType=VARCHAR}, #{dfloor,jdbcType=INTEGER}, 
+      #{dno,jdbcType=INTEGER}, #{dhno,jdbcType=VARCHAR}, #{dtype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Dorm">
+    insert into dorm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        did,
+      </if>
+      <if test="dbno != null">
+        dbno,
+      </if>
+      <if test="dfloor != null">
+        dfloor,
+      </if>
+      <if test="dno != null">
+        dno,
+      </if>
+      <if test="dhno != null">
+        dhno,
+      </if>
+      <if test="dtype != null">
+        dtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did,jdbcType=BIGINT},
+      </if>
+      <if test="dbno != null">
+        #{dbno,jdbcType=VARCHAR},
+      </if>
+      <if test="dfloor != null">
+        #{dfloor,jdbcType=INTEGER},
+      </if>
+      <if test="dno != null">
+        #{dno,jdbcType=INTEGER},
+      </if>
+      <if test="dhno != null">
+        #{dhno,jdbcType=VARCHAR},
+      </if>
+      <if test="dtype != null">
+        #{dtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Dorm">
+    update dorm
+    <set>
+      <if test="dbno != null">
+        dbno = #{dbno,jdbcType=VARCHAR},
+      </if>
+      <if test="dfloor != null">
+        dfloor = #{dfloor,jdbcType=INTEGER},
+      </if>
+      <if test="dno != null">
+        dno = #{dno,jdbcType=INTEGER},
+      </if>
+      <if test="dhno != null">
+        dhno = #{dhno,jdbcType=VARCHAR},
+      </if>
+      <if test="dtype != null">
+        dtype = #{dtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where did = #{did,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Dorm">
+    update dorm
+    set dbno = #{dbno,jdbcType=VARCHAR},
+      dfloor = #{dfloor,jdbcType=INTEGER},
+      dno = #{dno,jdbcType=INTEGER},
+      dhno = #{dhno,jdbcType=VARCHAR},
+      dtype = #{dtype,jdbcType=INTEGER}
+    where did = #{did,jdbcType=BIGINT}
+  </update>
+
+  <select id="getList" resultType="Dorm" parameterType="Dorm">
+    select * from dorm
+    <where>
+      <if test="did != null">
+        and did = #{did}
+      </if>
+      <if test="dbno != null and dbno != ''">
+        and dbno like concat('%',#{dbno},'%')
+      </if>
+      <if test="dfloor != null">
+        and dfloor = #{dfloor}
+      </if>
+      <if test="dno != null">
+        and dno = #{dno}
+      </if>
+      <if test="dhno != null and dhno != ''">
+        and dhno like concat('%',#{dhno},'%')
+      </if>
+      <if test="dtype != null">
+        and dtype = #{dtype}
+      </if>
+    </where>
+    order by did
+  </select>
+</mapper>

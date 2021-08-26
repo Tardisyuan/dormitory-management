@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--设置spring注解扫描包的范围-->
+    <context:component-scan base-package="com.tardisyuan.dormmanagement"/>
+    <!--启用SpringMVC的注解功能-->
+    <mvc:annotation-driven/>
+    <!--引入数据库配置文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--配置Mybatis的sqlSessionFactorBean工厂-->
+    <bean id="sqlSessionFactorBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--数据源注入-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置实体类别名-->
+        <property name="typeAliasesPackage" value="com.tardisyuan.dormmanagement.bean"/>
+        <!--配置Mybatis插件-->
+        <property name="plugins">
+            <array>
+                <!--mybatis分页插件配置-->
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>dialect=mysql</value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <!--配置Mapper文件动态代理转换器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--配置mapper文件地址-->
+        <property name="basePackage" value="com.tardisyuan.dormmanagement.mapper"/>
+        <!--配置SQLSessionFactorBean工厂-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactorBean"/>
+    </bean>
+
+    <!--配置Spring事物管理器-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--开启事物注解-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <!--配置自定义JSON解析器，用来解决部分浏览器有可能下载json文件的BUG-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <!--配置Spring自带解析器-->
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+            <!--配置fastjson解析器-->
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=utf-8</value>
+                        <value>application/json;charset=utf-8</value>
+                    </list>
+                </property>
+            </bean>
+
+        <!-- 处理请求时返回json字符串的中文乱码问题 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" />
+            </bean>
+        </mvc:message-converters>
+
+    </mvc:annotation-driven>
+
+    <!--配置静态资源路径地址放行-->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <!--配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--配置给控制器return字符串页面地址时自动拼接的前缀和后缀内容-->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+
+</beans>

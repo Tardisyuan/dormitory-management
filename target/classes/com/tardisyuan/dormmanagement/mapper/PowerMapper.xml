@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.PowerMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Power">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="power" jdbcType="VARCHAR" property="power" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, power, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from power
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from power
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Power">
+    insert into power (id, power, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{power,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Power">
+    insert into power
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="power != null">
+        power,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Power">
+    update power
+    <set>
+      <if test="power != null">
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Power">
+    update power
+    set power = #{power,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getList" parameterType="Power" resultType="Power">
+    select * from power p
+    <where>
+      <if test="power != null and power != ''">
+        and p.power like concat('%',#{power},'%')
+      </if>
+      <if test="status != null">
+        and p.status = #{status}
+      </if>
+    </where>
+    order by p.id desc
+  </select>
+</mapper>

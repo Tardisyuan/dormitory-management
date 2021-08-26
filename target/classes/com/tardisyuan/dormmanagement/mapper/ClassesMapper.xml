@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.ClassesMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Classes">
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="cgrade" jdbcType="INTEGER" property="cgrade" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="scid" jdbcType="INTEGER" property="scid" />
+    <result column="cstatus" jdbcType="INTEGER" property="cstatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid, cgrade, mid, cname, scid, cstatus
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from classes
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from classes
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Classes">
+    insert into classes (cid, cgrade, mid, 
+      cname, scid, cstatus
+      )
+    values (#{cid,jdbcType=INTEGER}, #{cgrade,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, 
+      #{cname,jdbcType=VARCHAR}, #{scid,jdbcType=INTEGER}, #{cstatus,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Classes">
+    insert into classes
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="cgrade != null">
+        cgrade,
+      </if>
+      <if test="mid != null">
+        mid,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="scid != null">
+        scid,
+      </if>
+      <if test="cstatus != null">
+        cstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cgrade != null">
+        #{cgrade,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="scid != null">
+        #{scid,jdbcType=INTEGER},
+      </if>
+      <if test="cstatus != null">
+        #{cstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Classes">
+    update classes
+    <set>
+      <if test="cgrade != null">
+        cgrade = #{cgrade,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null">
+        mid = #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="scid != null">
+        scid = #{scid,jdbcType=INTEGER},
+      </if>
+      <if test="cstatus != null">
+        cstatus = #{cstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Classes">
+    update classes
+    set cgrade = #{cgrade,jdbcType=INTEGER},
+      mid = #{mid,jdbcType=INTEGER},
+      cname = #{cname,jdbcType=VARCHAR},
+      scid = #{scid,jdbcType=INTEGER},
+      cstatus = #{cstatus,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <select id="getList" parameterType="Classes" resultType="Classes">
+    select c.*,m.mname,sc.scname from classes c,major m,sc sc where c.mid = m.mid and c.scid = sc.scid
+    <if test="cid != null">
+        and c.cid = #{cid}
+    </if>
+    <if test="cname != null and cname != ''">
+        and c.cname like concat('%',#{cname},'%')
+    </if>
+    <if test="cgrade != null">
+        and c.cgrade = #{cgrade}
+    </if>
+    <if test="mid != null">
+        and c.mid = #{mid}
+    </if>
+    <if test="scid != null">
+        and c.scid = #{scid}
+    </if>
+    <if test="mname != null and mname != ''">
+        and m.mname like concat('%',#{mname},'%')
+    </if>
+    <if test="scname != null and scname != ''">
+        and sc.scname like concat('%',#{scname},'%')
+    </if>
+    <if test="cstatus != null">
+        and c.cstatus = #{cstatus}
+    </if>
+    order by c.cid desc
+  </select>
+</mapper>

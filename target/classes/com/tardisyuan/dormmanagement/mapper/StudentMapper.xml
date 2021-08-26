@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Student">
+    <id column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="sname" jdbcType="VARCHAR" property="sname" />
+    <result column="collegeid" jdbcType="INTEGER" property="collegeid" />
+    <result column="ssex" jdbcType="INTEGER" property="ssex" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="did" jdbcType="BIGINT" property="did" />
+    <result column="sidcard" jdbcType="VARCHAR" property="sidcard" />
+    <result column="stel" jdbcType="VARCHAR" property="stel" />
+    <result column="sptel" jdbcType="VARCHAR" property="sptel" />
+    <result column="sptel2" jdbcType="VARCHAR" property="sptel2" />
+    <result column="sbed" jdbcType="INTEGER" property="sbed" />
+    <result column="spassword" jdbcType="VARCHAR" property="spassword" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="isafl" jdbcType="INTEGER" property="isafl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, sname, collegeid, ssex, cid, did, sidcard, stel, sptel, sptel2, sbed, spassword, 
+    pid, isafl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where sid = #{sid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where sid = #{sid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Student">
+    insert into student (sid, sname, collegeid, 
+      ssex, cid, did, sidcard, 
+      stel, sptel, sptel2, 
+      sbed, spassword, pid, 
+      isafl)
+    values (#{sid,jdbcType=INTEGER}, #{sname,jdbcType=VARCHAR}, #{collegeid,jdbcType=INTEGER}, 
+      #{ssex,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{did,jdbcType=BIGINT}, #{sidcard,jdbcType=VARCHAR}, 
+      #{stel,jdbcType=VARCHAR}, #{sptel,jdbcType=VARCHAR}, #{sptel2,jdbcType=VARCHAR}, 
+      #{sbed,jdbcType=INTEGER}, #{spassword,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, 
+      #{isafl,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="sname != null">
+        sname,
+      </if>
+      <if test="collegeid != null">
+        collegeid,
+      </if>
+      <if test="ssex != null">
+        ssex,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="did != null">
+        did,
+      </if>
+      <if test="sidcard != null">
+        sidcard,
+      </if>
+      <if test="stel != null">
+        stel,
+      </if>
+      <if test="sptel != null">
+        sptel,
+      </if>
+      <if test="sptel2 != null">
+        sptel2,
+      </if>
+      <if test="sbed != null">
+        sbed,
+      </if>
+      <if test="spassword != null">
+        spassword,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="isafl != null">
+        isafl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null">
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeid != null">
+        #{collegeid,jdbcType=INTEGER},
+      </if>
+      <if test="ssex != null">
+        #{ssex,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="did != null">
+        #{did,jdbcType=BIGINT},
+      </if>
+      <if test="sidcard != null">
+        #{sidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="stel != null">
+        #{stel,jdbcType=VARCHAR},
+      </if>
+      <if test="sptel != null">
+        #{sptel,jdbcType=VARCHAR},
+      </if>
+      <if test="sptel2 != null">
+        #{sptel2,jdbcType=VARCHAR},
+      </if>
+      <if test="sbed != null">
+        #{sbed,jdbcType=INTEGER},
+      </if>
+      <if test="spassword != null">
+        #{spassword,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="isafl != null">
+        #{isafl,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Student">
+    update student
+    <set>
+      <if test="sname != null">
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeid != null">
+        collegeid = #{collegeid,jdbcType=INTEGER},
+      </if>
+      <if test="ssex != null">
+        ssex = #{ssex,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="did != null">
+        did = #{did,jdbcType=BIGINT},
+      </if>
+      <if test="sidcard != null">
+        sidcard = #{sidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="stel != null">
+        stel = #{stel,jdbcType=VARCHAR},
+      </if>
+      <if test="sptel != null">
+        sptel = #{sptel,jdbcType=VARCHAR},
+      </if>
+      <if test="sptel2 != null">
+        sptel2 = #{sptel2,jdbcType=VARCHAR},
+      </if>
+      <if test="sbed != null">
+        sbed = #{sbed,jdbcType=INTEGER},
+      </if>
+      <if test="spassword != null">
+        spassword = #{spassword,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="isafl != null">
+        isafl = #{isafl,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Student">
+    update student
+    set sname = #{sname,jdbcType=VARCHAR},
+      collegeid = #{collegeid,jdbcType=INTEGER},
+      ssex = #{ssex,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      did = #{did,jdbcType=BIGINT},
+      sidcard = #{sidcard,jdbcType=VARCHAR},
+      stel = #{stel,jdbcType=VARCHAR},
+      sptel = #{sptel,jdbcType=VARCHAR},
+      sptel2 = #{sptel2,jdbcType=VARCHAR},
+      sbed = #{sbed,jdbcType=INTEGER},
+      spassword = #{spassword,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      isafl = #{isafl,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <select id="getList" resultType="Student" parameterType="Student">
+    select s.*, cla.cname, cla.cgrade, m.mname, coll.collegename, dor.dbno, dor.dno, dor.dhno, p.power from student s,classes cla,major m,college coll,dorm dor,power p where s.pid=p.id AND s.did = dor.did AND s.collegeid = coll.collegeid AND s.cid = cla.cid AND cla.mid = m.mid
+    <if test="sname != null and sname != ''">
+      and s.sname like concat('%',#{sname},'%')
+    </if>
+    <if test="stel != null and sname != ''">
+      and s.stel like concat('%',#{stel},'%')
+    </if>
+    <if test="cname != null and cname != ''">
+      and cla.cname like concat('%',#{cname},'%')
+    </if>
+    <if test="collegename != null and collegename != ''">
+      and coll.collegename like concat('%',#{collegename},'%')
+    </if>
+    <if test="dbno != null and dbno != ''">
+      and dor.dbno like concat('%',#{dbno},'%')
+    </if>
+    <if test="dhno != null and dhno != ''">
+      and dor.dhno like concat('%',#{dhno},'%')
+    </if>
+    <if test="power != null and power != ''">
+      and p.power like concat('%',#{power},'%')
+    </if>
+    <if test="sid != null">
+      and s.sid = #{sid}
+    </if>
+    <if test="collegeid != null">
+      and s.collegeid = #{collegeid}
+    </if>
+    <if test="ssex != null">
+      and s.ssex = #{ssex}
+    </if>
+    <if test="cid != null">
+    and s.cid = #{cid}
+    </if>
+    <if test="mid != null">
+    and cla.mid = #{mid}
+    </if>
+    <if test="did != null">
+    and s.did = #{did}
+    </if>
+    <if test="sbed != null">
+      and s.sbed = #{sbed}
+    </if>
+    <if test="pid != null">
+      and s.pid = #{pid}
+    </if>
+    <if test="cgrade != null">
+      and cla.cgrade = #{cgrade}
+    </if>
+    <if test="isafl != null">
+      and s.isafl = #{isafl}
+    </if>
+    <if test="dno != null">
+      and dor.dno = #{dno}
+    </if>
+    <if test="scid != null">
+      and cla.scid = #{scid}
+    </if>
+    order by s.sid
+  </select>
+</mapper>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tardisyuan.dormmanagement.mapper.ScMapper">
+  <resultMap id="BaseResultMap" type="com.tardisyuan.dormmanagement.bean.Sc">
+    <id column="scid" jdbcType="INTEGER" property="scid" />
+    <result column="scname" jdbcType="VARCHAR" property="scname" />
+    <result column="collegeid" jdbcType="INTEGER" property="collegeid" />
+    <result column="sctel" jdbcType="VARCHAR" property="sctel" />
+    <result column="scstatus" jdbcType="INTEGER" property="scstatus" />
+    <result column="scpassword" jdbcType="VARCHAR" property="scpassword" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scid, scname, collegeid, sctel, scstatus, scpassword, pid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sc
+    where scid = #{scid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sc
+    where scid = #{scid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tardisyuan.dormmanagement.bean.Sc">
+    insert into sc (scid, scname, collegeid, 
+      sctel, scstatus, scpassword, 
+      pid)
+    values (#{scid,jdbcType=INTEGER}, #{scname,jdbcType=VARCHAR}, #{collegeid,jdbcType=INTEGER}, 
+      #{sctel,jdbcType=VARCHAR}, #{scstatus,jdbcType=INTEGER}, #{scpassword,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tardisyuan.dormmanagement.bean.Sc">
+    insert into sc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scid != null">
+        scid,
+      </if>
+      <if test="scname != null">
+        scname,
+      </if>
+      <if test="collegeid != null">
+        collegeid,
+      </if>
+      <if test="sctel != null">
+        sctel,
+      </if>
+      <if test="scstatus != null">
+        scstatus,
+      </if>
+      <if test="scpassword != null">
+        scpassword,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scid != null">
+        #{scid,jdbcType=INTEGER},
+      </if>
+      <if test="scname != null">
+        #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeid != null">
+        #{collegeid,jdbcType=INTEGER},
+      </if>
+      <if test="sctel != null">
+        #{sctel,jdbcType=VARCHAR},
+      </if>
+      <if test="scstatus != null">
+        #{scstatus,jdbcType=INTEGER},
+      </if>
+      <if test="scpassword != null">
+        #{scpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tardisyuan.dormmanagement.bean.Sc">
+    update sc
+    <set>
+      <if test="scname != null">
+        scname = #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeid != null">
+        collegeid = #{collegeid,jdbcType=INTEGER},
+      </if>
+      <if test="sctel != null">
+        sctel = #{sctel,jdbcType=VARCHAR},
+      </if>
+      <if test="scstatus != null">
+        scstatus = #{scstatus,jdbcType=INTEGER},
+      </if>
+      <if test="scpassword != null">
+        scpassword = #{scpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where scid = #{scid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tardisyuan.dormmanagement.bean.Sc">
+    update sc
+    set scname = #{scname,jdbcType=VARCHAR},
+      collegeid = #{collegeid,jdbcType=INTEGER},
+      sctel = #{sctel,jdbcType=VARCHAR},
+      scstatus = #{scstatus,jdbcType=INTEGER},
+      scpassword = #{scpassword,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER}
+    where scid = #{scid,jdbcType=INTEGER}
+  </update>
+  <select id="getList" resultType="Sc" parameterType="Sc">
+    SELECT sc.*,col.collegename,p.power FROM sc sc, college col, power p WHERE sc.collegeid = col.collegeid AND sc.pid = p.id
+    <if test="scid != null">
+        and sc.scid = #{scid}
+    </if>
+    <if test="scname != null and scname != ''">
+        and sc.scname like concat('%',#{scname},'%')
+    </if>
+    <if test="collegeid != null">
+        and sc.collegeid = #{collegeid}
+    </if>
+    <if test="collegename != null and collegename != ''">
+        and col.collegename like concat('%',#{collegename},'%')
+    </if>
+    <if test="scstatus != null">
+        and sc.scstatus = #{scstatus}
+    </if>
+    <if test="power != null">
+      and sc.pid = #{power}
+    </if>
+
+    order by sc.scid desc
+  </select>
+</mapper>
