@@ -36,17 +36,17 @@
                     <span class="x-red">*</span>创建时间
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="lcratetime" name="lcratetime" required="" lay-verify="required"
-                           autocomplete="off" class="layui-input" pattern="yyyy-MM-dd HH:mm:ss">
+                    <p id="lcratetime" name="lcratetime"></p>
                 </div>
             </div>
+
             <div class="layui-form-item">
                 <label for="lstarttime" class="layui-form-label">
                     <span class="x-red">*</span>请假开始时间
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="lstarttime" name="lstarttime" required="" lay-verify="required"
-                           autocomplete="off" class="layui-input" pattern="yyyy-MM-dd HH:mm:ss">
+                           autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -55,7 +55,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="lendtime" name="lendtime" required="" lay-verify="required"
-                           autocomplete="off" class="layui-input" pattern="yyyy-MM-dd HH:mm:ss">
+                           autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -85,19 +85,25 @@
 </div>
 <script>
     //使用js获取el表达式的值
-    let collstatus="${college.collstatus}";
-    let collegename="${college.collegename}";
-    let collegeid="${college.collegeid}";
+    let lid="${leavenote.lid}";
     layui.use(['form'],function() {
         let form = layui.form;
-        if(collstatus){
-            $("#collegename").val(collegename);
-            $("#collegeid").val(collegeid);
-            let rs=$('input[name="collstatus"]');//获取所有的状态单选框
-            for(let i=0;i<rs.length;i++){
-                let value=rs[i].value;//获取每个单选框的value值
-                rs[i].checked=value==collstatus;//单选框的值和当前权限状态值一致则直接选中
-            };
+        if(lid){
+            layui.use('laydate', function(){
+                var laydate = layui.laydate;
+                //执行一个laydate实例
+                laydate.render({
+                    elem: '#lstarttime', //指定元素
+                    type: 'datetime',
+                    value: format("${leavenote.lstarttime}"),
+                });
+                laydate.render({
+                    elem: '#lendtime', //指定元素
+                    type: 'datetime',
+                    value: format("${leavenote.lendtime}"),
+                });
+            });
+            $("#lcratetime").text(format("${leavenote.lcratetime}"));
             //调用layui渲染表单
             form.render();
         }
@@ -128,15 +134,19 @@
             return false;
         });
     });
-    layui.use('laydate', function(){
-        var laydate = layui.laydate;
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#lcratetime', //指定元素
-            type: 'datetime',
-            value: "${leavenote.lcratetime}"
-        });
-    });
+
+    function add0(m){return m<10?'0'+m:m }
+    function format(shijianchuo)
+    {
+        var time = new Date(shijianchuo);
+        var y = time.getFullYear();
+        var m = time.getMonth()+1;
+        var d = time.getDate();
+        var h = time.getHours();
+        var mm = time.getMinutes();
+        var s = time.getSeconds();
+        return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+    }
 </script>
 </body>
 </html>

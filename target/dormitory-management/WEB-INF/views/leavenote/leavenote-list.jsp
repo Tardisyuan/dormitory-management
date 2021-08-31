@@ -82,6 +82,18 @@
     </div>
 </script>
 <script type="text/javascript">
+    function add0(m){return m<10?'0'+m:m }
+    function format(shijianchuo)
+    {
+        var time = new Date(shijianchuo);
+        var y = time.getFullYear();
+        var m = time.getMonth()+1;
+        var d = time.getDate();
+        var h = time.getHours();
+        var mm = time.getMinutes();
+        var s = time.getSeconds();
+        return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+    }
     layui.use(['table','form'], function() {
         let table = layui.table;
         let form = layui.form;
@@ -122,6 +134,7 @@
                 })
             }
         });
+
         //渲染表格
         table.render({
             elem:"#tableList",/*指定被渲染的表格*/
@@ -130,9 +143,19 @@
                 {field: 'lid',title:'假条编号'},
                 {field: 'sname',title: '学生姓名'},
                 {field: 'scname',title: '辅导员姓名'},
-                {field: 'lcratetime',title: '单创建时间'},
-                {field: 'starttime',title: '请假开始时间'},
-                {field: 'endtime',title: '请假结束时间'},
+                {field: 'lcratetime',title: '单创建时间',templet: function (d) {
+                    const timestamp4 = new Date(d.lcratetime);
+                    return format(timestamp4);
+                    }},
+                {field: 'lstarttime',title: '请假开始时间',templet: function (d) {
+                    const timestamp4 = new Date(d.lstarttime);
+                    console.log(timestamp4);
+                    return format(timestamp4);
+                    }},
+                {field: 'lendtime',title: '请假结束时间',templet: function (d) {
+                    const timestamp4 = new Date(d.lendtime);
+                    return format(timestamp4);
+                    }},
                 {field: 'ltype',title: '假条状态'},
                 {field: 'lnote',title: '假条备注'},
                 {title: '操作',toolbar:'#optTpl',fixed:'right'}

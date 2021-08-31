@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dormitory-management:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>dormitory-management</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="dormitory-management.war">
+      <element id="artifact" artifact-name="dormitory-management:war exploded" />
+    </root>
+  </artifact>
+</component>

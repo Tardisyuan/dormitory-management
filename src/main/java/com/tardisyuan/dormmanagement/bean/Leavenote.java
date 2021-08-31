@@ -1,9 +1,7 @@
 package com.tardisyuan.dormmanagement.bean;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 public class Leavenote {
     private Integer lid;
@@ -12,17 +10,11 @@ public class Leavenote {
 
     private Integer scid;
 
-    private ZonedDateTime lcratetime;
+    private Date lcratetime;
 
-    private String cratetime;
+    private Date lstarttime;
 
-    private ZonedDateTime lstarttime;
-
-    private String starttime;
-
-    private ZonedDateTime lendtime;
-
-    private String endtime;
+    private Date lendtime;
 
     private Integer ltype;
 
@@ -46,30 +38,6 @@ public class Leavenote {
                 ", sname='" + sname + '\'' +
                 ", scname='" + scname + '\'' +
                 '}';
-    }
-
-    public String getStarttime() {
-        return starttime;
-    }
-
-    public void setStarttime(String starttime) {
-        this.starttime = starttime;
-    }
-
-    public String getEndtime() {
-        return endtime;
-    }
-
-    public void setEndtime(String endtime) {
-        this.endtime = endtime;
-    }
-
-    public String getCratetime() {
-        return cratetime;
-    }
-
-    public void setCratetime(String cratetime) {
-        this.cratetime = cratetime;
     }
 
     public String getSname() {
@@ -112,27 +80,27 @@ public class Leavenote {
         this.scid = scid;
     }
 
-    public ZonedDateTime getLcratetime() {
+    public Date getLcratetime() {
         return lcratetime;
     }
 
-    public void setLcratetime(ZonedDateTime lcratetime) {
+    public void setLcratetime(Date lcratetime) {
         this.lcratetime = lcratetime;
     }
 
-    public ZonedDateTime getLstarttime() {
+    public Date getLstarttime() {
         return lstarttime;
     }
 
-    public void setLstarttime(ZonedDateTime lstarttime) {
+    public void setLstarttime(Date lstarttime) {
         this.lstarttime = lstarttime;
     }
 
-    public ZonedDateTime getLendtime() {
+    public Date getLendtime() {
         return lendtime;
     }
 
-    public void setLendtime(ZonedDateTime lendtime) {
+    public void setLendtime(Date lendtime) {
         this.lendtime = lendtime;
     }
 

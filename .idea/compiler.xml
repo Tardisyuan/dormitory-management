@@ -10,5 +10,8 @@
         <module name="dormitory-management" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dormitory-management" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
