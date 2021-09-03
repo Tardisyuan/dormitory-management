@@ -39,6 +39,7 @@
                         <div class="layui-card-body ">
 <%--                            按照条件进行搜索--%>
                             <form class="layui-form layui-col-space5">
+                            <form class="layui-form layui-col-space5">
                                 <div class="layui-inline layui-show-xs-block">
                                     <input type="text" name="mid" placeholder="请输入专业编号" autocomplete="off" class="layui-input">
                                 </div>

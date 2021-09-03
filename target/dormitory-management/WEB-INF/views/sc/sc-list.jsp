@@ -40,16 +40,32 @@
 <%--                            按照条件进行搜索--%>
                             <form class="layui-form layui-col-space5">
                                 <div class="layui-inline layui-show-xs-block">
-                                    <input type="text" name="scid" placeholder="请输入学院编号" autocomplete="off" class="layui-input">
+                                    <input type="text" name="scid" placeholder="请输入辅导员编号" autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
-                                    <input type="text" name="scgename" placeholder="请输入学院名称" autocomplete="off" class="layui-input">
+                                    <input type="text" name="scname" placeholder="请输入辅导员姓名" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <select name="collegeid" id="collegeid">
+                                        <option value="">[请选择所在学院]</option>
+                                        <c:forEach var="collList" items="${collList}">
+                                            <option value="${collList.collegeid}">${collList.collegename}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
                                     <select name="scstatus">
                                         <option value="">[请选择状态]</option>
                                         <option value="1">可用</option>
                                         <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <select name="pid">
+                                        <option value="">[请选择权限]</option>
+                                        <c:forEach items="${pList}" var="power">
+                                            <option value="${power.id}">${power.power}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
@@ -89,13 +105,13 @@
             //头工具栏事件
             table.on('toolbar(tableList)',function(obj) {
                 if(obj.event=="add"){
-                    xadmin.open("学院信息","sc/toUpdate",500,300,false);
+                    xadmin.open("辅导员信息","sc/toUpdate",500,500,false);
                 }
             });
             /*监听表格内工具栏*/
             table.on('tool(tableList)',function (obj){
                 if(obj.event=="update"){
-                    xadmin.open("学院信息","sc/toUpdate?scid="+obj.data.scid,500,300,false);
+                    xadmin.open("辅导员信息","sc/toUpdate?scid="+obj.data.scid,500,500,false);
                 }
                 if(obj.event=="delete"){
                     layer.confirm("确定删除该数据吗？",{icon:3,title:"确定提示"},function (index){
@@ -130,10 +146,10 @@
                 cols:[[/*设置列*/
                     {field: 'scid',title:'辅导员编号'},
                     {field: 'scname',title: '辅导员姓名'},
-                    {field: 'collegename',title: '辅导员姓名'},
+                    {field: 'collegename',title: '所在学院'},
                     {field: 'sctel',title: '辅导员电话'},
                     {field: 'scstatus',title: '状态',templet:'#statusTpl'},
-                    {field: 'power',title: '权限名'},
+                    {field: 'pid',title: '权限名'},
                     {title: '操作',toolbar:'#optTpl',fixed:'right'}
                 ]],
                 page:true,/*开启分页*/

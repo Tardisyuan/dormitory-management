@@ -32,7 +32,7 @@
                     <span class="x-red">*</span>专业编号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="mid" name="mid" required="" lay-verify="required"
+                    <input type="text" id="mid" name="mid" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入专业编号" value="${major.mid}" class="layui-input">
                 </div>
             </div>

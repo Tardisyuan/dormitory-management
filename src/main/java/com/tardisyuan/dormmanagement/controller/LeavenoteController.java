@@ -1,7 +1,11 @@
 package com.tardisyuan.dormmanagement.controller;
 
 import com.tardisyuan.dormmanagement.bean.Leavenote;
+import com.tardisyuan.dormmanagement.bean.Sc;
+import com.tardisyuan.dormmanagement.bean.Student;
 import com.tardisyuan.dormmanagement.service.LeavenoteService;
+import com.tardisyuan.dormmanagement.service.ScService;
+import com.tardisyuan.dormmanagement.service.StudentService;
 import com.tardisyuan.dormmanagement.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,12 @@ public class LeavenoteController {
     @Autowired
     private LeavenoteService leavenoteService;
 
+    @Autowired
+    private ScService scService;
+
+    @Autowired
+    private StudentService studentService;
+
     @RequestMapping("/page")
     public String page(){
         return  "leavenote/leavenote-list";
@@ -29,9 +39,12 @@ public class LeavenoteController {
 
     @RequestMapping("/toUpdate")
     public String toUpdate(Integer lid, HttpServletRequest request){
+        request.setAttribute("scList",scService.getAll(new Sc()));
         if(lid!=null){
             Leavenote leavenote=leavenoteService.getById(lid);
             request.setAttribute("leavenote",leavenote);
+            Student student = studentService.getById(leavenote.getSid());
+            leavenote.setSname(student.getSname());
         }
         return "leavenote/leavenote-addOrUpdate";
     }

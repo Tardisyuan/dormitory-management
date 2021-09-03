@@ -32,7 +32,7 @@
                     <span class="x-red">*</span>班级编号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="cid" name="cid" required="" lay-verify="required"
+                    <input type="text" id="cid" name="cid" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入班级编号" value="${classes.cid}" class="layui-input">
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <span class="x-red">*</span>年级
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="cgrade" name="cgrade" required="" lay-verify="required"
+                    <input type="text" id="cgrade" name="cgrade" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入年级" value="${classes.cgrade}" class="layui-input">
                 </div>
             </div>

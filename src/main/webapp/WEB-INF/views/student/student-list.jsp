@@ -224,27 +224,27 @@
                 elem:"#tableList",/*指定被渲染的表格*/
                 url:"student/list",/*远程加载JSON数据*/
                 cols:[[/*设置列*/
-                    {field: 'sid',title:'学生学号'},
-                    {field: 'sname',title:'学生姓名'},
-                    {field: 'collegename',title: '所处学院'},
-                    {field: 'ssex',title: '性别',templet: function (d) {
+                    {field: 'sid',title:'学生学号',align:'center',fixed: 'left'},
+                    {field: 'sname',title:'学生姓名',align:'center',width:80},
+                    {field: 'collegename',title: '所处学院',align:'center',width:150},
+                    {field: 'ssex',title: '性别',align:'center',width:75,templet: function (d) {
                         if (d.ssex===1){
                             return "男";
                         }
                             return "女";
                         }},
-                    {field: 'cname',title: '班级名'},
-                    {field: 'sidcard',title: '身份证号'},
-                    {field: 'stel',title: '学生电话'},
-                    {field: 'sptel',title: '学生家长电话'},
-                    {field: 'sptel2',title: '学生家长电话'},
-                    {field: 'dno',title: '宿舍',templet: function (d) {
+                    {field: 'cname',title: '班级名',width:240,align:'center'},
+                    {field: 'sidcard',title: '身份证号',align:'center',width:150,hide:true},
+                    {field: 'stel',title: '学生电话',align:'center',width:110},
+                    {field: 'sptel',title: '学生家长电话',align:'center',width:110},
+                    {field: 'sptel2',title: '学生家长电话',align:'center',width:110},
+                    {field: 'dno',title: '宿舍',align:'center',width:80,templet: function (d) {
                             return d.dbno +"&nbsp;" + d.dno;
                         }},
-                    {field: 'dhno',title: 'A/B间'},
-                    {field: 'sbed',title: '床位'},
-                    {field: 'power',title: '权限名'},
-                    {field: 'isafl',title: '是否请假',templet: function (d) {
+                    {field: 'dhno',title: 'A/B间',align:'center',width:70},
+                    {field: 'sbed',title: '床位',align:'center',width:70},
+                    {field: 'power',title: '权限名',align:'center',width:80},
+                    {field: 'isafl',title: '是否请假',width:80,align:'center',templet: function (d) {
                             if (d.isafl===1){
                                 return "请假中";
                             }if (d.isafl===1){
@@ -252,7 +252,7 @@
                             }
                             return "未请假";
                         }},
-                    {title: '操作',toolbar:'#optTpl',fixed:'right'}
+                    {title: '操作',toolbar:'#optTpl',fixed:'right',width:220}
                 ]],
                 page:true,/*开启分页*/
                 toolbar:"#toolbar"/*指定工具栏*/

@@ -31,7 +31,7 @@
                     <span class="x-red">*</span>宿舍编号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="did" name="did" required="" lay-verify="required"
+                    <input type="text" id="did" name="did" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入宿舍编号" value="${dorm.did}" class="layui-input">
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <span class="x-red">*</span>宿舍房间号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="dno" name="dno" required="" lay-verify="required"
+                    <input type="text" id="dno" name="dno" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入宿舍房间号" value="${dorm.dno}" class="layui-input">
                 </div>
             </div>
@@ -91,7 +91,7 @@
                     <span class="x-red">*</span>A / B间(选填)
                 </label>
                 <div class="layui-input-inline">
-                    <select name="dhno" id="dhno" required lay-verify="required">
+                    <select name="dhno" id="dhno">
                         <option value="">[请选择A / B间]</option>
                         <option value="A">A</option>
                         <option value="B">B</option>

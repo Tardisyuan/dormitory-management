@@ -32,7 +32,7 @@
                     <span class="x-red">*</span>学号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sid" name="sid" required="" lay-verify="required"
+                    <input type="text" id="sid" name="sid" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入学号" value="${student.sid}" class="layui-input">
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     <span class="x-red">*</span>身份证
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sidcard" name="sidcard" required="" lay-verify="required"
+                    <input type="text" id="sidcard" name="sidcard" required="" lay-verify="required|identity"
                            autocomplete="off" placeholder="请输入身份证" value="${student.sidcard}" class="layui-input">
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <span class="x-red">*</span>电话号码
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="stel" name="stel" required="" lay-verify="required"
+                    <input type="text" id="stel" name="stel" required="" lay-verify="required|phone|number"
                            autocomplete="off" placeholder="请输入电话号码" value="${student.stel}" class="layui-input">
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <span class="x-red">*</span>父亲电话号码
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sptel" name="sptel" required="" lay-verify="required"
+                    <input type="text" id="sptel" name="sptel" required="" lay-verify="required|phone|number"
                            autocomplete="off" placeholder="请输入家长电话号码" value="${student.sptel}" class="layui-input">
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <span class="x-red">*</span>母亲电话号码
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sptel2" name="sptel2" required="" lay-verify="required"
+                    <input type="text" id="sptel2" name="sptel2" required="" lay-verify="required|phone|number"
                            autocomplete="off" placeholder="请输入家长电话号码" value="${student.sptel2}" class="layui-input">
                 </div>
             </div>
@@ -145,7 +145,7 @@
                     <span class="x-red">*</span>宿舍房间号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="dno" name="dno" required="" lay-verify="required"
+                    <input type="text" id="dno" name="dno" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入宿舍房间号" value="${student.dno}" class="layui-input">
                 </div>
             </div>

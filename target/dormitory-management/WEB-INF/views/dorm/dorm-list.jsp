@@ -40,7 +40,7 @@
                         <%--                            按照条件进行搜索--%>
                         <form class="layui-form layui-col-space5">
                             <div class="layui-inline layui-show-xs-block">
-                                <input type="text" name="did" placeholder="请输入宿舍编号" autocomplete="off" class="layui-input">
+                                <input type="text" name="did" placeholder="请输入宿舍编号"  autocomplete="off" class="layui-input">
                             </div>
                             <div class="layui-inline layui-show-xs-block">
                                 <select name="dbno">

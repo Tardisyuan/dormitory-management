@@ -28,28 +28,50 @@
         <form class="layui-form">
 <%--            <input type="hidden" name="id" value="${college.collegeid}">--%>
             <div class="layui-form-item">
-                <label for="collegeid" class="layui-form-label">
+                <label for="scid" class="layui-form-label">
                     <span class="x-red">*</span>辅导员编号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="collegeid" name="collegeid" required="" lay-verify="required"
-                           autocomplete="off" placeholder="请输入学院编号" value="${sc.scid}" class="layui-input">
+                    <input type="text" id="scid" name="scid" required="" lay-verify="required|number"
+                           autocomplete="off" placeholder="请输入辅导员编号" value="${sc.scid}" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label for="collegename" class="layui-form-label">
+                <label for="scname" class="layui-form-label">
                     <span class="x-red">*</span>辅导员姓名
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="collegename" name="collegename" required="" lay-verify="required"
-                           autocomplete="off" placeholder="请输入学院名" value="${sc.scname}" class="layui-input">
+                    <input type="text" id="scname" name="scname" required="" lay-verify="required"
+                           autocomplete="off" placeholder="请输入辅导员姓名" value="${sc.scname}" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="sctel" class="layui-form-label">
+                    <span class="x-red">*</span>辅导员电话
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="sctel" name="sctel" required="" lay-verify="required|phone"
+                           autocomplete="off" placeholder="请输入辅导员电话" value="${sc.sctel}" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label"><span class="x-red">*</span>状态</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="collstatus" value="1" lay-skin="primary" title="可用" checked>
-                    <input type="radio" name="collstatus" value="0" lay-skin="primary" title="禁用">
+                    <input type="radio" name="scstatus" value="1" lay-skin="primary" title="可用" checked>
+                    <input type="radio" name="scstatus" value="0" lay-skin="primary" title="禁用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="pid" class="layui-form-label">
+                    <span class="x-red">*</span>权限
+                </label>
+                <div class="layui-input-inline">
+                    <select name="pid" id="pid" required lay-verify="required">
+                        <option value="">[请选择权限]</option>
+                        <c:forEach var="power" items="${pList}">
+                            <option value="${power.id}">${power.power}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -63,18 +85,16 @@
 </div>
 <script>
     //使用js获取el表达式的值
-    let collstatus="${college.collstatus}";
-    let collegename="${college.collegename}";
-    let collegeid="${college.collegeid}";
+    let scstatus="${sc.scstatus}";
+    let pid="${sc.pid}";
     layui.use(['form'],function() {
         let form = layui.form;
-        if(collstatus){
-            $("#collegename").val(collegename);
-            $("#collegeid").val(collegeid);
-            let rs=$('input[name="collstatus"]');//获取所有的状态单选框
+        if("${sc.scid}"){
+            $("#pid").val(pid);
+            let rs=$('input[name="scstatus"]');//获取所有的状态单选框
             for(let i=0;i<rs.length;i++){
                 let value=rs[i].value;//获取每个单选框的value值
-                rs[i].checked=value==collstatus;//单选框的值和当前权限状态值一致则直接选中
+                rs[i].checked=value==scstatus;//单选框的值和当前权限状态值一致则直接选中
             }
             //调用layui渲染表单
             form.render();
@@ -82,7 +102,7 @@
         //监听提交
         form.on('submit(add)',function(data) {
             $.ajax({
-                url:'college/doUpdate',
+                url:'sc/doUpdate',
                 method:"post",
                 data:data.field,
                 dataType:"json",

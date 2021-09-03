@@ -47,23 +47,23 @@
 
                     <c:if test="${empty user}">
                         <div class="layui-form-item">
-                        <label for="password" class="layui-form-label">
-                            <span class="x-red">*</span>密码
-                        </label>
-                        <div class="layui-input-inline">
-                            <input type="password" id="password" name="password" required="" lay-verify="required"
-                                   autocomplete="off" placeholder="请输入密码" class="layui-input">
+                            <label for="password" class="layui-form-label">
+                                <span class="x-red">*</span>密码
+                            </label>
+                            <div class="layui-input-inline">
+                                <input type="password" id="password" name="password" required="" lay-verify="required"
+                                       autocomplete="off" placeholder="请输入密码" class="layui-input">
+                            </div>
                         </div>
-                    </div>
                         <div class="layui-form-item">
-                        <label for="repwd" class="layui-form-label">
-                            <span class="x-red">*</span>确认密码
-                        </label>
-                        <div class="layui-input-inline">
-                            <input type="password" id="repwd" name="repwd" required="" lay-verify="required|respwd"
-                                   autocomplete="off" placeholder="请再次输入密码" class="layui-input">
+                            <label for="repwd" class="layui-form-label">
+                                <span class="x-red">*</span>确认密码
+                            </label>
+                            <div class="layui-input-inline">
+                                <input type="password" id="repwd" name="repwd" required="" lay-verify="required|respwd"
+                                       autocomplete="off" placeholder="请再次输入密码" class="layui-input">
+                            </div>
                         </div>
-                    </div>
                     </c:if>
 
                     <div class="layui-form-item">

@@ -30,16 +30,40 @@
         <form class="layui-form">
 <%--          请假单编号--%>
             <input type="hidden" name="lid" value="${leavenote.lid}">
+            <div class="layui-form-item">
+                <label for="sname" class="layui-form-label">
+                    <span class="x-red">*</span>学生姓名
+                </label>
+                <div class="layui-input-inline">
+                    <div>
+                        <p id="sname" name="sname"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="scid" class="layui-form-label">
+                    <span class="x-red">*</span>辅导员
+                </label>
+                <div class="layui-input-inline">
+                    <select name="scid" id="scid" required lay-verify="required">
+                        <option value="">[请选择辅导员]</option>
+                        <c:forEach var="scList" items="${scList}">
+                            <option value="${scList.scid}">${scList.scname}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
 <%--            创建时间--%>
             <div class="layui-form-item">
                 <label for="lcratetime" class="layui-form-label">
                     <span class="x-red">*</span>创建时间
                 </label>
                 <div class="layui-input-inline">
-                    <p id="lcratetime" name="lcratetime"></p>
+                    <label for="lcratetime" class="layui-form-label">
+                        <p id="lcratetime" name="lcratetime"></p>
+                    </label>
                 </div>
             </div>
-
             <div class="layui-form-item">
                 <label for="lstarttime" class="layui-form-label">
                     <span class="x-red">*</span>请假开始时间
@@ -67,13 +91,7 @@
                            class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label"><span class="x-red">*</span>状态</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="collstatus" value="1" lay-skin="primary" title="可用" checked>
-                    <input type="radio" name="collstatus" value="0" lay-skin="primary" title="禁用">
-                </div>
-            </div>
+
             <div class="layui-form-item">
                 <label class="layui-form-label"></label>
                 <button  class="layui-btn" lay-filter="add" lay-submit="">
@@ -86,6 +104,7 @@
 <script>
     //使用js获取el表达式的值
     let lid="${leavenote.lid}";
+    let scid="${leavenote.scid}";
     layui.use(['form'],function() {
         let form = layui.form;
         if(lid){
@@ -104,6 +123,8 @@
                 });
             });
             $("#lcratetime").text(format("${leavenote.lcratetime}"));
+            $("#sname").text("${leavenote.sname}");
+            $("#scid").val(scid);
             //调用layui渲染表单
             form.render();
         }

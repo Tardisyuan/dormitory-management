@@ -26,13 +26,12 @@
 <div class="layui-fluid">
     <div class="layui-row">
         <form class="layui-form">
-<%--            <input type="hidden" name="id" value="${college.collegeid}">--%>
             <div class="layui-form-item">
                 <label for="collegeid" class="layui-form-label">
                     <span class="x-red">*</span>学院编号
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="collegeid" name="collegeid" required="" lay-verify="required"
+                    <input type="text" id="collegeid" name="collegeid" required="" lay-verify="required|number"
                            autocomplete="off" placeholder="请输入学院编号" value="${college.collegeid}" class="layui-input">
                 </div>
             </div>

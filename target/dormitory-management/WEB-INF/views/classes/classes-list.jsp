@@ -43,7 +43,7 @@
                                     <input type="text" name="collegeid" placeholder="请输入班级编号" autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
-                                    <input type="text" name="cgrade" placeholder="请输入年级" autocomplete="off" class="layui-input">
+                                    <input type="text" name="cgrade" placeholder="请输入年级"  autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
                                     <select name="mid" id="mid">
@@ -160,11 +160,13 @@
             });
             //监听搜索按钮提交
             form.on('submit(search)',function (obj){
+                console.log(obj.field);
                 table.reload('tableList',{
                     page:{
                         curr:1
                     },
                     where:obj.field
+
                 });
                 return false;
             });
