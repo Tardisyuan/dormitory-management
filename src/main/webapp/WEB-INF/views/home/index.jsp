@@ -150,7 +150,21 @@
                 </ul>
             </div>
         </div>
-        <!-- <div class="x-slide_left"></div> -->
+        <div style="
+        text-align:center;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        z-index: 2;
+        background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+        background-image: -o-linear-gradient(left, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+        background-image: linear-gradient(left, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+        background-repeat: repeat-x;
+        padding: 2rem 0;
+        width: 220px;
+        max-width: 220px;
+        overflow: hidden;
+        "><a href="http://beian.miit.gov.cn/">沪ICP备2021028558号</a></div>
         <!-- 左侧菜单结束 -->
         <!-- 右侧主体开始 -->
         <div class="page-content">

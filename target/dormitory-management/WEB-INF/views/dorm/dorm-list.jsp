@@ -47,19 +47,19 @@
                                     <option value="">[请选择宿舍楼]</option>
                                     <option value="L16A">L16A</option>
                                     <option value="L16B">L16B</option>
-                                    <%--<option value="C1">C1</option>--%>
-                                    <%--<option value="C2">C2</option>--%>
-                                    <%--<option value="C3">C3</option>--%>
+                                    <option value="C1">C1</option>
+                                    <option value="C2">C2</option>
+                                    <option value="C3">C3</option>
                                     <option value="C4">C4</option>
-                                    <%--<option value="C5">C5</option>--%>
-                                    <%--<option value="C6">C6</option>--%>
-                                    <%--<option value="C7">C7</option>--%>
-                                    <%--<option value="C8">C8</option>--%>
-                                    <%--<option value="C9">C9</option>--%>
-                                    <%--<option value="C10">C10</option>--%>
-                                    <%--<option value="C11">C11</option>--%>
-                                    <%--<option value="C12">C12</option>--%>
-                                    <%--<option value="C13">C13</option>--%>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="C7">C7</option>
+                                    <option value="C8">C8</option>
+                                    <option value="C9">C9</option>
+                                    <option value="C10">C10</option>
+                                    <option value="C11">C11</option>
+                                    <option value="C12">C12</option>
+                                    <option value="C13">C13</option>
                                 </select>
                             </div>
                             <div class="layui-inline layui-show-xs-block">

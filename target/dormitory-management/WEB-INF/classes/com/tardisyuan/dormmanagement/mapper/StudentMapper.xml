@@ -196,6 +196,11 @@
       isafl = #{isafl,jdbcType=INTEGER}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
+
+  <select id="login" parameterType="Student" resultType="Student">
+    select s.*,p.power from student s,power p where s.pid=p.id and s.sid=#{sid} and s.spassword=#{spassword}
+  </select>
+
   <select id="getList" resultType="Student" parameterType="Student">
     select s.*, cla.cname, cla.cgrade, m.mname, coll.collegename, dor.dbno, dor.dno, dor.dhno, p.power from student s,classes cla,major m,college coll,dorm dor,power p where s.pid=p.id AND s.did = dor.did AND s.collegeid = coll.collegeid AND s.cid = cla.cid AND cla.mid = m.mid
     <if test="sname != null and sname != ''">

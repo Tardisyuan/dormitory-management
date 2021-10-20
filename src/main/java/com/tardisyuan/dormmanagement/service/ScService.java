@@ -7,6 +7,7 @@ import com.tardisyuan.dormmanagement.util.R;
 import java.util.List;
 
 public interface ScService {
+    Sc login(Sc sc);
     R getPage(int page, int limit, Sc sc);
     R addOrUpdate(Sc sc);
     R delete(Integer id);

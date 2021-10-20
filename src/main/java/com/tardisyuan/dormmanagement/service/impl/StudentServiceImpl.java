@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.tardisyuan.dormmanagement.bean.Student;
 import com.tardisyuan.dormmanagement.mapper.StudentMapper;
 import com.tardisyuan.dormmanagement.service.StudentService;
+import com.tardisyuan.dormmanagement.util.MD5Util;
 import com.tardisyuan.dormmanagement.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentMapper studentMapper;
+
+    @Override
+    public Student login(Student student) {
+        student.setSpassword(MD5Util.MD5(student.getSpassword()));
+        return studentMapper.login(student);
+    }
 
     @Override
     public R getPage(int page, int limit, Student student) {

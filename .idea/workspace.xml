@@ -10,44 +10,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bc449c6-79a2-4312-ad90-27072d78820d" name="Default Changelist" comment="1.0.2">
+    <list default="true" id="9bc449c6-79a2-4312-ad90-27072d78820d" name="Default Changelist" comment="1.0.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/LeavenoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/LeavenoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/ScController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/ScController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes/classes-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes/classes-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes/classes-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes/classes-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/college/college-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/college/college-addOrUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/db/dormitory-management.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/db/dormitory-management.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/ScMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/ScMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/ScService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/ScService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dorm/dorm-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dorm/dorm-addOrUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dorm/dorm-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dorm/dorm-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/leavenote/leavenote-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/leavenote/leavenote-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/major/major-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/major/major-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/major/major-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/major/major-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sc/sc-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sc/sc-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sc/sc-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sc/sc-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/welcome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student-addOrUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/student/student-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/user-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/user-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/LeavenoteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/LeavenoteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/ScController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/ScController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/ScService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/ScService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dormitory-management.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/LeavenoteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/LeavenoteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/ScController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/ScController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/classes/classes-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/classes/classes-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/classes/classes-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/classes/classes-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/college/college-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/college/college-addOrUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/ScMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/mapper/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/ScService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/ScService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/impl/SCServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/classes/com/tardisyuan/dormmanagement/service/impl/StudentServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/dorm/dorm-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/dorm/dorm-addOrUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/dorm/dorm-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/dorm/dorm-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/leavenote/leavenote-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/leavenote/leavenote-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/major/major-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/major/major-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/major/major-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/major/major-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/sc/sc-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/sc/sc-addOrUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/sc/sc-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/sc/sc-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/home/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/home/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/home/welcome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/student/student-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/student/student-addOrUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/student/student-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/student/student-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/user/user-addOrUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/WEB-INF/views/user/user-addOrUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dormitory-management/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dormitory-management/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +120,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/leavenote" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30574712" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -125,6 +134,7 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/static" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/leavenote" />
       <recent name="$PROJECT_DIR$/src/main/db" />
@@ -467,7 +477,13 @@
       <workItem from="1630461544532" duration="8304000" />
       <workItem from="1630500109540" duration="2752000" />
       <workItem from="1630547972858" duration="3720000" />
-      <workItem from="1630650276413" duration="9043000" />
+      <workItem from="1630650276413" duration="10577000" />
+      <workItem from="1630814733327" duration="4824000" />
+      <workItem from="1631441117780" duration="899000" />
+      <workItem from="1631442267704" duration="4595000" />
+      <workItem from="1634632267894" duration="1788000" />
+      <workItem from="1634712258181" duration="43000" />
+      <workItem from="1634718957381" duration="1740000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.1">
       <created>1629965823836</created>
@@ -490,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630414511893</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.0.3">
+      <created>1630669328146</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630669328146</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +536,8 @@
     <MESSAGE value="1.0" />
     <MESSAGE value="1.0.1" />
     <MESSAGE value="1.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.2" />
+    <MESSAGE value="1.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

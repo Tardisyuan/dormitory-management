@@ -114,6 +114,12 @@
       pid = #{pid,jdbcType=INTEGER}
     where scid = #{scid,jdbcType=INTEGER}
   </update>
+
+  <select id="login" parameterType="Sc" resultType="Sc">
+    select sc.*,p.power from sc sc,power p where sc.pid=p.id and sc.scid=#{scid} and sc.scpassword=#{scpassword}
+  </select>
+
+
   <select id="getList" resultType="Sc" parameterType="Sc">
     SELECT sc.*,col.collegename,p.power FROM sc sc, college col, power p WHERE sc.collegeid = col.collegeid AND sc.pid = p.id
     <if test="scid != null">

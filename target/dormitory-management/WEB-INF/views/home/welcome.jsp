@@ -26,7 +26,7 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <blockquote class="layui-elem-quote">欢迎管理员：
-                                <span class="x-red">${loginInfo.username}</span>！<span class="showTime"/>
+                                <span class="x-red">${loginInfo.nickname}</span>！<span class="showTime"/>
                             </blockquote>
                         </div>
                     </div>

@@ -101,7 +101,7 @@
                     <span class="x-red">*</span>父亲电话号码
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sptel" name="sptel" required="" lay-verify="required|phone|number"
+                    <input type="text" id="sptel" name="sptel" required=""
                            autocomplete="off" placeholder="请输入家长电话号码" value="${student.sptel}" class="layui-input">
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <span class="x-red">*</span>母亲电话号码
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="sptel2" name="sptel2" required="" lay-verify="required|phone|number"
+                    <input type="text" id="sptel2" name="sptel2" required=""
                            autocomplete="off" placeholder="请输入家长电话号码" value="${student.sptel2}" class="layui-input">
                 </div>
             </div>

@@ -17,5 +17,7 @@ public interface ScMapper {
 
     int updateByPrimaryKey(Sc record);
 
+    Sc login(Sc sc);
+
     List<Sc> getList(Sc sc);
 }

@@ -27,7 +27,7 @@
         <form method="post" class="layui-form" >
 			<select name="login_type">
                 <option value="3">3.管理员登录</option>
-				<option value="1">1.普通用户登录</option>
+				<option value="1">1.学生登录</option>
 				<option value="2">2.辅导员登录</option>
 			</select>
 			<hr class="hr15">
@@ -48,7 +48,7 @@
 				form.on('submit(login)', function(data){
 					var url = 'adminlogin';
 					if (data.field.login_type == 1){
-					    url = 'userlogin'
+					    url = 'studentlogin'
                     }
                     if (data.field.login_type == 2){
                         url = 'sclogin'

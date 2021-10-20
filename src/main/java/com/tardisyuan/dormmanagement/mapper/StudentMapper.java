@@ -17,5 +17,7 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
 
+    Student login(Student student);
+
     List<Student> getList(Student record);
 }
