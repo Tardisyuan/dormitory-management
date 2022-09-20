@@ -21,10 +21,10 @@
         <!--自定义变量-->
         <springframework.version>4.2.4.RELEASE</springframework.version>
         <slf4j-log4j12.version>1.7.12</slf4j-log4j12.version>
-        <mysql.version>8.0.28</mysql.version>
+        <mysql.version>6.0.6</mysql.version>
         <mybatis.version>3.4.6</mybatis.version>
         <mybatis.spring.version>1.3.2</mybatis.spring.version>
-        <fastjson.version>1.2.83</fastjson.version>
+        <fastjson.version>1.2.62</fastjson.version>
         <druid.version>1.0.13</druid.version>
         <aspectjweaver.version>1.8.2</aspectjweaver.version>
         <javaee-api.version>8.0</javaee-api.version>
@@ -32,7 +32,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <pagehelper.version>4.1.6</pagehelper.version>
-        <jackson.version>2.12.6.1</jackson.version>
+        <jackson.version>2.5.1</jackson.version>
         <lombok>1.18.10</lombok>
     </properties>
 
